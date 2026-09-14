@@ -1,0 +1,32 @@
+<!doctype html><html><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Creator Hub • Walk With Walker</title><link rel="stylesheet" href="style.css"></head><body>
+<header class="nav"><div class="navin"><a class="logo" href="index.html"><span class="logoMark">W</span><span>WALK WITH WALKER</span></a>
+<nav class="links" id="links"><a href="index.html">Home</a><a href="music.html">Music</a><a href="books.html">Books</a><a href="profiles.html">Profiles</a><a href="games.html">Games</a><a href="entertainment.html">Entertainment</a><a href="creator-hub.html" class="active">Creator Hub</a></nav>
+<button class="menu" id="menuBtn">☰</button></div></header>
+<main>
+<section class="hero"><div><div class="kicker">Creator Studio</div><h1>Your work. Your <span class="accent">profile.</span></h1>
+<p class="lead">Build your Walk With Walker presence and organize your music, books, games and creative projects in one place.</p>
+<div class="actions"><button class="btn primary" onclick="openModal('creatorModal')">Create creator profile</button><a class="btn" href="profiles.html">Browse creators</a></div></div></section>
+<section class="section"><div class="sectionHead"><div><div class="kicker">Identity</div><h2>Creator profile</h2></div></div><div id="creatorPreview" class="card"></div></section>
+<section class="section"><div class="sectionHead"><div><div class="kicker">Your content</div><h2>Creator shelves</h2></div></div><div class="grid">
+<div class="card"><div class="cover">♪</div><h3>Music</h3><p class="meta">Show your tracks and artist information.</p><button class="btn" onclick="addDemo('music')">Add demo track</button></div>
+<div class="card"><div class="cover">B</div><h3>Books</h3><p class="meta">Show your books, stories and writing projects.</p><button class="btn" onclick="addDemo('book')">Add demo book</button></div>
+<div class="card"><div class="cover">G</div><h3>Games</h3><p class="meta">Show your games and development projects.</p><button class="btn" onclick="addDemo('game')">Add demo game</button></div>
+</div></section>
+<section class="section"><div class="statgrid"><div class="stat"><strong id="countMusic">0</strong>Music items</div><div class="stat"><strong id="countBooks">0</strong>Books</div><div class="stat"><strong id="countGames">0</strong>Games</div><div class="stat"><strong id="countFollowers">0</strong>Followers</div></div></section>
+</main><footer><div class="foot"><span>© 2026 Walk With Walker</span><span>Music • Books • People • Games</span></div></footer>
+<div class="modal" id="creatorModal"><div class="box"><div class="boxTop"><h2>Create creator profile</h2><button class="close" onclick="closeModal('creatorModal')">×</button></div>
+<form onsubmit="saveCreator(event)"><div class="field"><label>Creator name</label><input name="name" required></div>
+<div class="field"><label>Creator type</label><select name="role"><option>Artist</option><option>Writer</option><option>Gamer</option><option>Creator</option></select></div>
+<div class="field"><label>Bio</label><textarea name="bio" placeholder="Tell people what you create"></textarea></div>
+<div class="field"><label>Location / base</label><input name="location" placeholder="Optional"></div>
+<button class="btn primary">Save creator profile</button></form></div></div>
+<div class="toast" id="toast"></div>
+<script src="script.js"></script><script>
+function saveCreator(e){e.preventDefault();const f=new FormData(e.target);const c={name:f.get('name'),role:f.get('role'),bio:f.get('bio'),location:f.get('location'),followers:0};localStorage.setItem('ww_creator',JSON.stringify(c));closeModal('creatorModal');renderCreator();toast('Creator profile saved on this device');e.target.reset();}
+function renderCreator(){const c=JSON.parse(localStorage.getItem('ww_creator')||'null'),box=document.getElementById('creatorPreview');if(!c){box.innerHTML='<h3>No creator profile yet</h3><p class="meta">Create one to see your creator identity here.</p>';return}box.innerHTML='<div class="profileRow"><div class="avatar">'+escapeHtml(c.name[0].toUpperCase())+'</div><div><h3>'+escapeHtml(c.name)+'</h3><div class="meta">'+escapeHtml(c.role)+(c.location?' • '+escapeHtml(c.location):'')+'</div></div></div><p class="meta">'+escapeHtml(c.bio||'No bio added yet.')+'</p><button class="btn" onclick="openModal(\'creatorModal\')">Edit profile</button>';}
+function addDemo(type){const key=type==='music'?'ww_music':type==='book'?'ww_books':'ww_games';const d={music:{title:'My New Track',artist:'My Creator',type:'Single',letter:'♪'},book:{title:'My New Book',author:'My Creator',type:'Book',letter:'B'},game:{title:'My New Game',genre:'Adventure',status:'Prototype',letter:'G'}};const a=JSON.parse(localStorage.getItem(key)||'[]');a.push(d[type]);localStorage.setItem(key,JSON.stringify(a));updateCounts();toast('Demo item added');}
+function updateCounts(){document.getElementById('countMusic').textContent=JSON.parse(localStorage.getItem('ww_music')||'[]').length;document.getElementById('countBooks').textContent=JSON.parse(localStorage.getItem('ww_books')||'[]').length;document.getElementById('countGames').textContent=JSON.parse(localStorage.getItem('ww_games')||'[]').length;const c=JSON.parse(localStorage.getItem('ww_creator')||'null');document.getElementById('countFollowers').textContent=c?.followers||0;}
+document.addEventListener('DOMContentLoaded',()=>{renderCreator();updateCounts()});
+</script></body></html>

@@ -1,0 +1,1 @@
+Upload creator-hub.html to the root of your existing repository. Then open /creator-hub.html. Uses the existing style.css and script.js. Frontend/localStorage demo only; do not use real passwords or private data.
