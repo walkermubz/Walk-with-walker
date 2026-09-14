@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Walk With Walker | Entertainment Hub</title>
+<meta name="description" content="Walk With Walker — music, books, people and games.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="#home"><b>W</b><span>WALK WITH WALKER</span></a>
+  <button class="hamb" onclick="menu()">☰</button>
+  <nav id="nav">
+    <a href="#home">Home</a><a href="#music">Music</a><a href="#books">Books</a><a href="#profiles">Profiles</a><a href="#games">Games</a><a href="#news">News</a>
+    <button class="login" onclick="openModal('login')">Login</button>
+    <button class="signup" onclick="openModal('signup')">Join</button>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div><p class="eyebrow">MUSIC • BOOKS • PEOPLE • GAMES</p>
+  <h1>Welcome to<br><em>Walk With Walker.</em></h1>
+  <p class="lead">One place to discover creators, listen to music, read stories and explore games.</p>
+  <div class="actions"><a class="primary" href="#discover">Start Exploring</a><button class="secondary" onclick="openModal('signup')">Create Profile</button></div></div>
+</section>
+
+<section id="discover">
+  <div class="title"><div><p class="eyebrow">DISCOVER</p><h2>Everything in one place</h2></div>
+  <input id="search" oninput="searchCards()" placeholder="Search the platform…"></div>
+  <div class="tabs"><button class="active" onclick="filter('all',this)">All</button><button onclick="filter('music',this)">Music</button><button onclick="filter('books',this)">Books</button><button onclick="filter('people',this)">People</button><button onclick="filter('games',this)">Games</button></div>
+  <div class="cards" id="catalog">
+    <article class="card item music"><div class="visual v1">♪</div><small>MUSIC</small><h3>Fresh Sounds</h3><p>Discover artists and new releases.</p><button onclick="toast('Music player coming next')">Play</button></article>
+    <article class="card item books"><div class="visual v2">BOOK</div><small>BOOKS</small><h3>New Stories</h3><p>Explore writers and their work.</p><button onclick="toast('Reader opening soon')">Read</button></article>
+    <article class="card item people"><div class="visual avatar">A</div><small>PROFILE</small><h3>Featured Creator</h3><p>Artist • Creator</p><button onclick="toast('Profile pages are ready for connection')">Profile</button></article>
+    <article class="card item games"><div class="visual v3">🏎</div><small>GAME</small><h3>Street Rush</h3><p>Follow the racing game project.</p><button onclick="location.hash='street-rush'">Explore</button></article>
+  </div>
+</section>
+
+<section id="music"><div class="title"><div><p class="eyebrow">LISTEN</p><h2>Music</h2></div><a href="#discover">Browse →</a></div>
+<div class="feature music-feature"><div class="cover">♫</div><div><small>FEATURED MUSIC</small><h2>Find your next sound.</h2><p>Artist pages, releases, albums, playlists and a music player can live here.</p><button class="primary" onclick="toast('Player coming in the backend version')">Open Music</button></div></div></section>
+
+<section id="books"><div class="title"><div><p class="eyebrow">READ</p><h2>Books & Stories</h2></div><a href="#discover">Browse →</a></div>
+<div class="books"><div class="book"><div>THE<br>STORY</div><h3>Featured Book</h3><p>By emerging writers.</p></div><div class="book b2"><div>WORDS</div><h3>New Authors</h3><p>Fresh voices and ideas.</p></div><div class="book b3"><div>NEXT<br>CHAPTER</div><h3>Popular Reads</h3><p>Stories readers love.</p></div></div></section>
+
+<section id="profiles"><div class="title"><div><p class="eyebrow">COMMUNITY</p><h2>Creator Profiles</h2></div><button class="primary" onclick="openModal('signup')">Create yours</button></div>
+<div class="profiles"><div class="profile"><div class="avatar">A</div><h3>Artist</h3><p>Music • Creator</p><button onclick="toast('Creator profile selected')">View profile</button></div><div class="profile"><div class="avatar av2">W</div><h3>Writer</h3><p>Author • Storyteller</p><button onclick="toast('Creator profile selected')">View profile</button></div><div class="profile"><div class="avatar av3">G</div><h3>Gamer</h3><p>Games • Creator</p><button onclick="toast('Creator profile selected')">View profile</button></div></div></section>
+
+<section id="games"><div class="title"><div><p class="eyebrow">PLAY</p><h2>Games</h2></div></div>
+<div class="feature game" id="street-rush"><div class="gameart">STREET<br><b>RUSH</b></div><div><small>FEATURED GAME</small><h2>Street Rush</h2><p>A fast-paced street racing project. This page can later host the playable build, updates, screenshots and community features.</p><button class="primary" onclick="toast('Street Rush game page selected')">Game Details</button></div></div></section>
+
+<section id="news"><div class="title"><div><p class="eyebrow">LATEST</p><h2>Entertainment</h2></div></div>
+<div class="news"><article><small>NEWS</small><h3>Discover new creators</h3><p>Find musicians, writers, gamers and other creators.</p></article><article><small>UPDATE</small><h3>Walk With Walker is growing</h3><p>More features can be connected as the platform develops.</p></article></div></section>
+
+<section class="join"><p class="eyebrow">BECOME PART OF IT</p><h2>Your talent. Your story. Your platform.</h2><p>Join Walk With Walker and build your creator profile.</p><button class="primary" onclick="openModal('signup')">Join Walk With Walker</button></section>
+</main>
+
+<footer><a class="logo" href="#home"><b>W</b><span>WALK WITH WALKER</span></a><p>Music • Books • People • Games</p><small>© 2026 Walk With Walker</small></footer>
+
+<div class="modal" id="modal" onclick="closeModal(event)"><div class="modalbox" onclick="event.stopPropagation()"><button class="x" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
+<div id="toast"></div>
+<script src="script.js"></script>
+</body></html>
