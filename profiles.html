@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Walk With Walker | Profiles</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><a class="logo" href="index.html"><b>W</b> WALK WITH WALKER</a><button class="hamb" onclick="toggleNav()">☰</button><nav id="nav"><a href="index.html">Home</a><a href="#profiles">Profiles</a><a href="#how">How it works</a><button onclick="openAuth('login')">Login</button><button class="join" onclick="openAuth('signup')">Create Profile</button></nav></header>
+<section class="hero"><p class="eyebrow">WALK WITH WALKER COMMUNITY</p><h1>Create your<br><em>creator profile.</em></h1><p>Build a profile for your music, books, games, projects and entertainment content.</p><button class="primary" onclick="openAuth('signup')">Create Profile</button></section>
+<section id="profiles"><div class="title"><div><p class="eyebrow">COMMUNITY</p><h2>Featured Profiles</h2></div><input id="search" oninput="searchProfiles()" placeholder="Search profiles"></div>
+<div class="profiles">
+<article class="profile"><div class="avatar">A</div><small>ARTIST</small><h3>Featured Artist</h3><p>Music • Creator</p><button onclick="viewProfile('Featured Artist','Artist')">View profile</button></article>
+<article class="profile"><div class="avatar av2">W</div><small>WRITER</small><h3>Featured Writer</h3><p>Books • Storyteller</p><button onclick="viewProfile('Featured Writer','Writer')">View profile</button></article>
+<article class="profile"><div class="avatar av3">G</div><small>GAMER</small><h3>Featured Gamer</h3><p>Games • Creator</p><button onclick="viewProfile('Featured Gamer','Gamer')">View profile</button></article>
+</div></section>
+<section id="how" class="steps"><p class="eyebrow">YOUR PROFILE</p><h2>What creators can add</h2><div class="stepgrid"><div><b>01</b><h3>Identity</h3><p>Name, username, photo and bio.</p></div><div><b>02</b><h3>Your work</h3><p>Music, books, games, videos and projects.</p></div><div><b>03</b><h3>Links</h3><p>Social links and other creator information.</p></div></div></section>
+<footer><a class="logo" href="index.html"><b>W</b> WALK WITH WALKER</a><p>Music • Books • People • Games</p></footer>
+<div class="modal" id="modal"><div class="modalbox"><button class="x" onclick="closeModal()">×</button><div id="modalContent"></div></div></div><div id="toast"></div>
+<script src="script.js"></script>
+</body></html>

@@ -1,8 +1,4 @@
-WALK WITH WALKER — V2
-Files:
-- index.html: website pages and content
-- style.css: responsive mobile-first design
-- script.js: navigation, search, filters, modal forms and notifications
-
-This version is a front-end prototype. Login, accounts, uploads, real audio/books, database and admin moderation require a backend connection.
-Open index.html in a browser to preview it.
+WALK WITH WALKER PROFILE SYSTEM V1
+Upload profiles.html, style.css and script.js to your GitHub Pages repository.
+This is a front-end profile demo. It uses local device storage only; do not enter real passwords.
+The next production step is connecting secure authentication, a database and profile-photo storage.
